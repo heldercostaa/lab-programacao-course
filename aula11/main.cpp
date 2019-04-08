@@ -33,14 +33,13 @@ int main() {
 	const char* texto = "ABDABCDABCB";
 	const char* padrao = "ABC";
 	
-	int tam = sizeof(texto)/sizeof(texto[0]) + 1;
+	int tam = 11 + 1;
 	int* saida = new int[tam];
 	
 	subseq_intuitivo(texto, padrao, saida);
 	
-	while(true) {
-		if (*saida == -1) { break; }
-		std::cout << *saida << " ";
+	for(int i = 0; saida[i] != -1; i++) {
+		std::cout << "Padrão encontrado no índice: " << saida[i] << std::endl;
 	}
-	std::cout << "\n";
+	
 }
