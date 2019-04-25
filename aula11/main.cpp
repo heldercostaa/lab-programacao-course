@@ -35,16 +35,15 @@ void subseq_intuitivo(const char* texto, const char* padrao, int* saida) {
 	
 	int s = 0;
 
-	for(int i = 0; texto[i] != '\0'; i++) {
-
-		int t = i;
-		int p = 0;
-
-		while(padrao[p] != '\0' && (texto[t] == padrao[p])) {
-			t++;
-			p++;
+	for (int i = 0; texto[i] != '\0'; i++) {
+		bool achou = true;
+		for (int j = 0; padrao[j] != '\0'; j++) {
+			if (texto[i+j] != padrao[j]) {
+				achou = false;
+				break;
+			}
 		}
-		if(padrao[p] == '\0') {
+		if (achou) {
 			saida[s] = i;
 			s++;
 		}
