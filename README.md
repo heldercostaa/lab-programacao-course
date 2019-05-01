@@ -7,7 +7,7 @@
 ## About
 The intention of this course is to practice implementations (in C/C++) of some algorithms that we've seen a lot of the theory through computer science graduation. The complete program and some extra information about the course can be seen in [this page](http://dc.ufc.br/~pablo/2019-1/lp/) (in Portuguese).  
 
-This repository is divided into classes related to every class and its corresponding implementation. It's possible that some folders may not contain any implementation because this class was probably just about the theory and explanation.  
+This repository is divided into folders related to every class and its corresponding implementation. It's possible that some folders may not contain any implementation because this class was probably just about the theory and explanation.  
 
 Thus, each class has pictures of the board (in Portuguese) with the Professor's annotations.  
 
