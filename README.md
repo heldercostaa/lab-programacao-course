@@ -14,7 +14,7 @@ Thus, each class has pictures of the board (in Portuguese) with the Professor's 
 ## Implementations
 The following implementations were built through the course:  
 
-### Quicksort and variations
+### [Quicksort and variations](https://github.com/heldercostaa/lab-programacao-course/tree/master/quicksort)
 The focus of these implementations is to check the impact of the different ways to implement **Quicksort** algorithm, the **pivot selection**, and the **partition**.  
 For the **quicksort**, variations are built: a full recursive implementation with indexes, a full recursive implementation with pointers and an optimized implementation with the recursion on the smaller side of the array. 
 For the **pivot selection**, are implemented four strategies: one based on fixed (the first) index of the array, one based on a random element on the array, one with Hoare algorithm and the last with BFPRT algorithm.  
@@ -22,6 +22,6 @@ And about the **partitions**, the one pivot (2 partitions) and dual pivot (3 par
 
 After passing some input about the array to sort, for each combination of these above implementations, a quicksort is built to sort the array and, at the end, the time of **all combinations** is compared in a table.  
 
-### Knuth-Morris-Pratt
+### [Knuth-Morris-Pratt](https://github.com/heldercostaa/lab-programacao-course/tree/master/pattern-search)
 > In progress...  
 
