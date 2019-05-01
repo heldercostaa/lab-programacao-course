@@ -17,16 +17,16 @@ The following implementations were built through the course:
 ### Quicksort and variations [[_link_](https://github.com/heldercostaa/lab-programacao-course/tree/master/quicksort)]
 The focus of these implementations is to check the impact of the different ways to implement **Quicksort** algorithm, the **pivot selection**, and the **partition**.  
 
-> For the **quicksort**, variations are built: 
+For the **quicksort**, variations are built: 
 > - A recursive implementation with indexes.
 > - A recursive implementation with pointers.
 > - An optimized implementation with the recursion on the smaller side of the array.  
-> For the **pivot selection** are implemented four strategies: 
+For the **pivot selection** are implemented four strategies: 
 > - Fixed (the first) index of the array.
 > - Random element on the array.
 > - Hoare algorithm.
 > - BFPRT algorithm.  
-> And about the **partitions**: 
+And about the **partitions**: 
 > - One pivot (2 partitions).
 > - Dual pivot (3 partitions).  
 
