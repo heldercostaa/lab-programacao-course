@@ -747,10 +747,9 @@
 			path = pictures;
 			sourceTree = "<group>";
 		};
-		C8AB20A6222D5360000FED0D = {
+		C89469572279304500882146 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				C894695222791A8600882146 /* README.md */,
 				C8567188222D55DF0015EDB3 /* class-01 */,
 				C8567194222D561A0015EDB3 /* class-02 */,
 				C85671A3222D56570015EDB3 /* class-03 */,
@@ -765,9 +764,18 @@
 				C8946917227917A200882146 /* class-13 */,
 				C8946922227917AB00882146 /* class-14 */,
 				C894692D227917B200882146 /* class-15 */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		C8AB20A6222D5360000FED0D = {
+			isa = PBXGroup;
+			children = (
+				C89469572279304500882146 /* classes */,
 				C8946938227917D000882146 /* pattern-search */,
 				C80361372252B2810080BA9D /* quicksort */,
 				C8AB20B0222D5361000FED0D /* Products */,
+				C894695222791A8600882146 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
