@@ -46,7 +46,7 @@
 
 // -----------------------------------------------------------------------------
 
-#include "selecao.hpp"
+#include "selection.hpp"
 
 #include <new>
 
@@ -65,7 +65,7 @@ using std::swap;
 //                   * false: indica sucesso.
 //
 template <typename T>
-bool escrever_instancia (T *v, int n) {
+bool create_instance (T *v, int n) {
 	
 	int i;  int *pos = new(nothrow) int[n];  if (pos == nullptr) return true;
 
@@ -74,7 +74,7 @@ bool escrever_instancia (T *v, int n) {
 	for (i = n-1; i != -1; --i) {
 		
 		//int p = escolher_pivo(0,i);
-		int p = (int) (Selecao::selecao_fixa(pos, pos+(n-1))-pos);
+		int p = (int) (Selection::fixed_selection(pos, pos+(n-1))-pos);
 		v[ pos[p] ] = i;
 		
 		swap( pos[p], pos[0] );  swap( pos[0], pos[i] );

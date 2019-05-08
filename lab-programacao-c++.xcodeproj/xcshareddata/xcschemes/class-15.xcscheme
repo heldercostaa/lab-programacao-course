@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C80361352252B2810080BA9D"
-               BuildableName = "quicksort"
-               BlueprintName = "quicksort"
+               BlueprintIdentifier = "C894692B227917B200882146"
+               BuildableName = "class-15"
+               BlueprintName = "class-15"
                ReferencedContainer = "container:lab-programacao-c++.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C80361352252B2810080BA9D"
-            BuildableName = "quicksort"
-            BlueprintName = "quicksort"
+            BlueprintIdentifier = "C894692B227917B200882146"
+            BuildableName = "class-15"
+            BlueprintName = "class-15"
             ReferencedContainer = "container:lab-programacao-c++.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C80361352252B2810080BA9D"
-            BuildableName = "quicksort"
-            BlueprintName = "quicksort"
+            BlueprintIdentifier = "C894692B227917B200882146"
+            BuildableName = "class-15"
+            BlueprintName = "class-15"
             ReferencedContainer = "container:lab-programacao-c++.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C80361352252B2810080BA9D"
-            BuildableName = "quicksort"
-            BlueprintName = "quicksort"
+            BlueprintIdentifier = "C894692B227917B200882146"
+            BuildableName = "class-15"
+            BlueprintName = "class-15"
             ReferencedContainer = "container:lab-programacao-c++.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
