@@ -9,6 +9,7 @@
 #include "array_helper.hpp"
 #include "search.hpp"
 #include "enum.hpp"
+#include "instancias_Reais_Trabalho_2.hpp"
 
 #include <thread>
 #include <iostream>
@@ -18,9 +19,8 @@ int main() {
 	
 	int n = 20;
 	int m = 3;
-	int l = 3;
 	
-	std::string choice = "wc2";
+	std::string choice = "real";
 	
 	const char* text = "";
 	const char* pattern = "";
@@ -29,6 +29,7 @@ int main() {
 		
 		std::cout << "Running: Random instances." << std::endl;
 		
+		int l = 3;
 		text = random_text(n, l);
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 		pattern = random_text(m, l);
@@ -49,7 +50,18 @@ int main() {
 		text = std::get<0>(wc2);
 		pattern = std::get<1>(wc2);
 		
-	} else {
+	} else if (choice == "real") {
+		
+		std::cout << "Running: Real instance." << std::endl;
+		
+		// number between [0..35129]
+		int word = 24234;
+		text = Texto_Livros;
+		pattern = Padroes_Palavras[word];
+		n = 66;
+		m = (int) strlen(pattern);
+		
+	}else {
 		
 		std::cout << "Invalid input." << std::endl;
 		return 0;
@@ -89,7 +101,5 @@ int main() {
 	}
 	
 	if(!pattern_found) { std::cout << "Could not find pattern on this text." << std::endl; }
-
-
 	
 }
