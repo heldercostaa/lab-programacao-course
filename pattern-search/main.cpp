@@ -9,114 +9,126 @@
 #include "array_helper.hpp"
 #include "search.hpp"
 #include "enum.hpp"
-#include "instancias_Reais_Trabalho_2.hpp"
 #include "console_helper.hpp"
+#include "instance.hpp"
 
 #include <thread>
 #include <iostream>
 #include <random>
+#include <string.h>
+#include <vector>
 
 int main() {
 	
-	bool print_input = false;
-	int instance_type = 0;
-	
-	begin_application();
-	std::cout << "\nEnter the way to generate the instances\n";
-	std::cout << "   (1) - Random instances\n";
-	std::cout << "   (2) - Worst Case 1 / ex: Text='aaaa..aa' and pattern='aa..ab'\n";
-	std::cout << "   (3) - Worst Case 2 / ex: Text='aaaa..aa' and pattern='aa..aa'\n";
-	std::cout << "   (4) - Real instance\n";
-	while (instance_type < 1 or instance_type > 4) {
-		std::cout << "\nEnter mode (1-4): ";
-		std::cin >> instance_type;
-	}
-	
-	
-	int n = 20;
-	int m = 3;
-	int l = 3;
-	// number between [0..35129]
-	int word = 24234;
-	std::string instance_name = "";
-	
-	std::tuple<char*, char*> wc1, wc2;
-	
-	const char* text = "";
-	const char* pattern = "";
-	
-	
-	switch (instance_type) {
-		case 1: // Random instance
-			text = random_text(n, l);
-			std::this_thread::sleep_for(std::chrono::seconds(1));
-			pattern = random_text(m, l);
-			
-			instance_name = "Random";
-			break;
-			
-		case 2: // Worst case 1
-			wc1 = worst_case_1(n, m);
-			text = std::get<0>(wc1);
-			pattern = std::get<1>(wc1);
-			
-			instance_name = "Worst case 1";
-			break;
-			
-		case 3: // Worst case 2
-			wc2 = worst_case_2(n, m);
-			text = std::get<0>(wc2);
-			pattern = std::get<1>(wc2);
-			
-			instance_name = "Worst case 2";
-			break;
-			
-		case 4: // Real instance
-			text = Texto_Livros;
-			pattern = Padroes_Palavras[word];
-			n = 66;
-			m = (int) strlen(pattern);
-			
-			instance_name = "Real";
-			break;
-			
-		default:
-			std::cout << "Invalid input" << std::endl;
-			return 0;
-	}
-	
-	if (print_input) {
-		std::cout << "Text: ";
-		print_text(text, n);
-		std::cout << "Pattern: ";
-		print_text(pattern, m);
-	}
-	
-	Search intuitive_search = Search(INTUITIVE);
-	Search kmp_search = Search(KMP);
-	
-	int* intuitive_output = new int[n+1];
-	intuitive_output[0] = -1;
-	
-	int* kmp_output = new int[n+1];
-	kmp_output[0] = -1;
-	
-	std::chrono::steady_clock::time_point intuitive_begin = std::chrono::steady_clock::now();
-	intuitive_search.search(text, pattern, intuitive_output);
-	std::chrono::steady_clock::time_point intuitive_end = std::chrono::steady_clock::now();
-	
-	std::chrono::steady_clock::time_point kmp_begin = std::chrono::steady_clock::now();
-	kmp_search.search(text, pattern, kmp_output);
-	std::chrono::steady_clock::time_point kmp_end = std::chrono::steady_clock::now();
-	
-	bool equal_output = equal(intuitive_output, kmp_output);
-	
-	long intuitive_time = std::chrono::duration_cast<std::chrono::milliseconds>(intuitive_end - intuitive_begin).count();
-	long kmp_time = std::chrono::duration_cast<std::chrono::milliseconds>(kmp_end - kmp_begin).count();
+	while(true) {
 
-	std::cout << "Instance type: " << instance_name << std::endl;
-	std::cout << "Intuitive time: " << intuitive_time << std::endl;
-	std::cout << "KMP time: " << kmp_time << std::endl;
-	std::cout << "Equal: " << (equal_output ? "Yes" : "No") << std::endl;
-	
+		int instance_number = 0;
+		enum_instance instance_type = RANDOM;
+		int n = -1, m = -1;
+		int l_or_word = -1;
+		
+		begin_application();
+		std::cout << "\nEnter the way to generate the instances\n";
+		std::cout << "   (1) - Random instances\n";
+		std::cout << "   (2) - Worst Case 1 / eg: Text='aaaa..aa' and pattern='aa..ab'\n";
+		std::cout << "   (3) - Worst Case 2 / eg: Text='aaaa..aa' and pattern='aa..aa'\n";
+		std::cout << "   (4) - Real instance\n";
+		while (instance_number < 1 or instance_number > 4) {
+			std::cout << "\nEnter mode (1-4): ";
+			std::cin >> instance_number;
+
+			if (instance_number == 1) {
+				instance_type = RANDOM;
+			} else if (instance_number == 2) {
+				instance_type = WC1;
+			} else if (instance_number == 3) {
+				instance_type = WC2;
+			} else if (instance_number == 4) {
+				instance_type = REAL;
+			}
+		}
+
+		if (instance_type != REAL) {
+			std::cout << "\nEnter the size of the Text: ";
+			std::cin >> n;
+			std::cout << "Great, now the size of the Pattern: ";
+			std::cin >> m;
+		}
+
+		Instance instance;
+		if (instance_type == RANDOM || instance_type == REAL) {
+			if (instance_type == RANDOM) {
+				std::cout << "\nAs you chose Random Instances, is necessary to limit the alphabet\n";
+				std::cout << "to the first l elements. The alphabet have a-z letters (26 letters).\n";
+				while (l_or_word < 1 || l_or_word > 26) {
+					std::cout << "\nChoose l between 1 and 26: ";
+					std::cin >> l_or_word;
+				}
+			} else {
+				std::cout << "\nThe Real Instance is a book, so you have to choose one word of the book.\n";
+				std::cout << "There are 35130 different words in this book.\n";
+
+				while (l_or_word < 1 || l_or_word > 35130) {
+					std::cout << "\nChoose one number between 1 and 35130: ";
+					std::cin >> l_or_word;
+				}
+				l_or_word--;
+			}
+			instance = Instance(instance_type, n, m, l_or_word);
+		} else {
+			instance = Instance(instance_type, n, m);
+		}
+
+		call_beginning(instance);
+
+		std::vector<std::tuple<Search,std::vector<int>,long,bool>> result;
+		int* arr1 = NULL;
+		int* arr2 = NULL;
+
+		for (int t_search_type = first_search+1; t_search_type < last_search; t_search_type++) {
+			
+			enum_search search_type = (enum_search) t_search_type;
+
+			Search search = Search(search_type, instance);
+			std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+			std::vector<int> indexes = search.search();
+			std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+			long time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+			
+			/*std::vector<int> indexes;
+			for(int i = 0; output[i] != -1; i++) {
+				indexes.push_back(output[i]);
+			}
+
+			if(arr1 == NULL) {
+				arr1 = output;
+			} else {
+				arr2 = arr1;
+				arr1 = output;	
+			}*/
+
+			bool same_output = true;
+			if (arr1 != NULL && arr2 != NULL) {
+				same_output = equal(arr1, arr2);
+			}
+
+			std::tuple<Search,std::vector<int>,long,bool> tuple = std::make_tuple(search, indexes, time, same_output);
+			result.push_back(tuple);
+		}
+
+		show_results(result);
+
+		std::cout << "\n\nDo you want to try another Text and Pattern? (Y/N)\n>> ";
+		std::string repeat;
+		std::cin >> repeat;
+		
+		if (repeat == "N" or repeat == "n") {
+			return 0;
+		} else {
+			clean_screen();
+			continue;
+		}
+
+	}
+
 }

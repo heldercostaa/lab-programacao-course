@@ -15,8 +15,6 @@ void print_text(const char* text, int size) {
 	for (const char* q = text; q != text+size; q++) {
 		std::cout << *q;
 	}
-	
-	std::cout << "\n";
 }
 
 void print_array(int *arr, int size) {

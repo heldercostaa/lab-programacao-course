@@ -10,17 +10,26 @@
 #define search_hpp
 
 #include "enum.hpp"
+#include "instance.hpp"
+
+#include <string.h>
+#include <vector>
 
 class Search {
 	enum_search search_type;
 
 public:
-	Search(enum_search t_search_type);
+	std::string search_name;
+	Instance instance;
+
+	Search(enum_search t_search_type, Instance t_instance);
 	
-	void search(const char* text, const char* pattern, int* output);
+	std::vector<int> search();
 	
-	void intuitive_search(const char* text, const char* pattern, int* output);
-	void kmp(const char* text, const char* pattern, int* output);
+	std::vector<int> intuitive_search(const char* text, const char* pattern, std::vector<int> output);
+	std::vector<int> kmp(const char* text, const char* pattern, std::vector<int> output);
+
+	friend std::ostream& operator<<(std::ostream &os, const Search& n);
 };
 
 

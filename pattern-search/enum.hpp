@@ -9,9 +9,16 @@
 #ifndef ENUM_HPP
 #define ENUM_HPP
 
-enum enum_search {
+enum enum_search { first_search,
 	INTUITIVE,
-	KMP
+	KMP,
+last_search };
+
+enum enum_instance {
+	RANDOM,
+	WC1,
+	WC2,
+	REAL
 };
 
 #endif /* ENUM_HPP */

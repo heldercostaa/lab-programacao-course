@@ -37,6 +37,7 @@
 		C85671AC222D56690015EDB3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C85671AA222D56690015EDB3 /* main.cpp */; };
 		C86499C8228A49A800E06FD8 /* table_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86499C7228A49A800E06FD8 /* table_printer.cpp */; };
 		C86499CB228A49E300E06FD8 /* console_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86499C9228A49E300E06FD8 /* console_helper.cpp */; };
+		C86499CE228B373D00E06FD8 /* instance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86499CC228B373D00E06FD8 /* instance.cpp */; };
 		C8708986228778F30092C029 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8708985228778F30092C029 /* main.cpp */; };
 		C87089912287790B0092C029 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87089902287790B0092C029 /* main.cpp */; };
 		C870899E22877AED0092C029 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C870899D22877AEC0092C029 /* main.cpp */; };
@@ -315,6 +316,8 @@
 		C86499C7228A49A800E06FD8 /* table_printer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = table_printer.cpp; sourceTree = "<group>"; };
 		C86499C9228A49E300E06FD8 /* console_helper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = console_helper.cpp; sourceTree = "<group>"; };
 		C86499CA228A49E300E06FD8 /* console_helper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = console_helper.hpp; sourceTree = "<group>"; };
+		C86499CC228B373D00E06FD8 /* instance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = instance.cpp; sourceTree = "<group>"; };
+		C86499CD228B373D00E06FD8 /* instance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = instance.hpp; sourceTree = "<group>"; };
 		C8708983228778F30092C029 /* class-01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "class-01"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8708985228778F30092C029 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C870898E2287790B0092C029 /* class-10 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "class-10"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -835,6 +838,7 @@
 			children = (
 				C87089B82288E2A40092C029 /* enum.hpp */,
 				C87089BA2288E3BF0092C029 /* search.hpp */,
+				C86499CD228B373D00E06FD8 /* instance.hpp */,
 				C87089B52288DDC10092C029 /* array_helper.hpp */,
 				C86499CA228A49E300E06FD8 /* console_helper.hpp */,
 			);
@@ -901,6 +905,7 @@
 			children = (
 				C8946939227917D000882146 /* main.cpp */,
 				C87089B92288E3BF0092C029 /* search.cpp */,
+				C86499CC228B373D00E06FD8 /* instance.cpp */,
 				C87089B22288DD720092C029 /* helpers */,
 				C87089B32288DD840092C029 /* headers */,
 				C86499C4228914D900E06FD8 /* libs */,
@@ -1651,6 +1656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86499CE228B373D00E06FD8 /* instance.cpp in Sources */,
 				C86499CB228A49E300E06FD8 /* console_helper.cpp in Sources */,
 				C894693A227917D000882146 /* main.cpp in Sources */,
 				C86499C8228A49A800E06FD8 /* table_printer.cpp in Sources */,

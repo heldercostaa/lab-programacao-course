@@ -7,29 +7,36 @@
 //
 
 #include "search.hpp"
+#include "array_helper.hpp"
 
+#include <iostream>
 #include <cstring>
 
-Search::Search(enum_search t_search_type) {
+Search::Search(enum_search t_search_type, Instance t_instance) {
 	search_type = t_search_type;
+	instance = t_instance;
 };
 
-void Search::search(const char* text, const char* pattern, int* output) {
+std::vector<int> Search::search() {
 	
+	std::vector<int> output;
+
 	switch (search_type) {
 		case INTUITIVE:
-			intuitive_search(text, pattern, output);
-			break;
+			search_name = "Intuitive";
+			return intuitive_search(instance.text, instance.pattern, output);
 		case KMP:
-			kmp(text, pattern, output);
-			break;
+			search_name = "KMP";
+			return kmp(instance.text, instance.pattern, output);
+		default:
+			std::cout << "Error: Invalid Search Type.";
+			return output;
+
 	}
 	
 }
 
-void Search::intuitive_search(const char* text, const char* pattern, int* output) {
-	
-	int s = 0;
+std::vector<int> Search::intuitive_search(const char* text, const char* pattern, std::vector<int> output) {
 	
 	for (int i = 0; text[i] != '\0'; i++) {
 		bool found = true;
@@ -40,12 +47,11 @@ void Search::intuitive_search(const char* text, const char* pattern, int* output
 			}
 		}
 		if (found) {
-			output[s] = i;
-			s++;
+			output.push_back(i);
 		}
 	}
-	
-	output[s] = -1;
+
+	return output;
 }
 
 /*
@@ -94,15 +100,17 @@ int* calculate_pi(const char* pattern) {
 	return pi;
 }
 
-void Search::kmp(const char* text, const char* pattern, int* output) {
+std::vector<int> Search::kmp(const char* text, const char* pattern, std::vector<int> output) {
 	
 	int* pi = calculate_pi(pattern);
-	//print_array(pi, strlen(padrao));
+
+	//std::cout << "Pi: "; 
+	//print_array(pi, strlen(pattern));
 	
 	long n = strlen(text);
 	long m = strlen(pattern);
 	
-	int i = 0, j = 0, s = 0;
+	int i = 0, j = 0;
 	
 	while (i < n) {
 		if (text[i] != pattern[j]) {
@@ -113,8 +121,7 @@ void Search::kmp(const char* text, const char* pattern, int* output) {
 			}
 		} else {
 			if (j == m-1) {
-				output[s] = i;
-				s++;
+				output.push_back(i-j);
 				j = pi[j];
 				i++;
 			} else {
@@ -123,7 +130,24 @@ void Search::kmp(const char* text, const char* pattern, int* output) {
 			}
 		}
 	}
+
+	return output;
 	
-	output[s] = -1;
+}
+
+
+std::ostream& operator<<(std::ostream &os, const Search& search) {
+	switch (search.search_type) {
+		case INTUITIVE:
+			std::cout << "Intuitive";
+			break;
+		case KMP:
+			std::cout << "KMP";
+			break;
+		default:
+			std::cout << "Error: Invalid Algorithm";
+			break;
+	}
 	
+	return os;
 }
