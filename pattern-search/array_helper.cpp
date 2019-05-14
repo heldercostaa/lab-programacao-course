@@ -28,6 +28,25 @@ void print_array(int *arr, int size) {
 	std::cout << "\n";
 }
 
+bool equal(int* arr1, int* arr2) {
+	
+	int arr1_size = sizeof(arr1)/sizeof(arr1[0]);
+	int arr2_size = sizeof(arr2)/sizeof(arr2[0]);
+		
+	int i = 0;
+	int j = 0;
+	
+	while (i != arr1_size || j != arr2_size) {
+		if (arr1[i] != arr2[j]) {
+			return false;
+		}
+		i++;
+		j++;
+	}
+	
+	return true;
+}
+
 char* random_text(int size, int l) {
 	
 	srand(static_cast<unsigned int>(time(NULL)));

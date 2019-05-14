@@ -10,6 +10,7 @@
 #include "search.hpp"
 #include "enum.hpp"
 #include "instancias_Reais_Trabalho_2.hpp"
+#include "console_helper.hpp"
 
 #include <thread>
 #include <iostream>
@@ -17,60 +18,79 @@
 
 int main() {
 	
+	bool print_input = false;
+	int instance_type = 0;
+	
+	begin_application();
+	std::cout << "\nEnter the way to generate the instances\n";
+	std::cout << "   (1) - Random instances\n";
+	std::cout << "   (2) - Worst Case 1 / ex: Text='aaaa..aa' and pattern='aa..ab'\n";
+	std::cout << "   (3) - Worst Case 2 / ex: Text='aaaa..aa' and pattern='aa..aa'\n";
+	std::cout << "   (4) - Real instance\n";
+	while (instance_type < 1 or instance_type > 4) {
+		std::cout << "\nEnter mode (1-4): ";
+		std::cin >> instance_type;
+	}
+	
+	
 	int n = 20;
 	int m = 3;
+	int l = 3;
+	// number between [0..35129]
+	int word = 24234;
+	std::string instance_name = "";
 	
-	std::string choice = "real";
+	std::tuple<char*, char*> wc1, wc2;
 	
 	const char* text = "";
 	const char* pattern = "";
 	
-	if (choice == "random") {
-		
-		std::cout << "Running: Random instances." << std::endl;
-		
-		int l = 3;
-		text = random_text(n, l);
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-		pattern = random_text(m, l);
-		
-	} else if (choice == "wc1") {
-		
-		std::cout << "Running: Worst Case 1." << std::endl;
-		
-		auto wc1 = worst_case_1(n, m);
-		text = std::get<0>(wc1);
-		pattern = std::get<1>(wc1);
-		
-	} else if (choice == "wc2") {
-		
-		std::cout << "Running: Worst Case 2." << std::endl;
-
-		auto wc2 = worst_case_2(n, m);
-		text = std::get<0>(wc2);
-		pattern = std::get<1>(wc2);
-		
-	} else if (choice == "real") {
-		
-		std::cout << "Running: Real instance." << std::endl;
-		
-		// number between [0..35129]
-		int word = 24234;
-		text = Texto_Livros;
-		pattern = Padroes_Palavras[word];
-		n = 66;
-		m = (int) strlen(pattern);
-		
-	}else {
-		
-		std::cout << "Invalid input." << std::endl;
-		return 0;
+	
+	switch (instance_type) {
+		case 1: // Random instance
+			text = random_text(n, l);
+			std::this_thread::sleep_for(std::chrono::seconds(1));
+			pattern = random_text(m, l);
+			
+			instance_name = "Random";
+			break;
+			
+		case 2: // Worst case 1
+			wc1 = worst_case_1(n, m);
+			text = std::get<0>(wc1);
+			pattern = std::get<1>(wc1);
+			
+			instance_name = "Worst case 1";
+			break;
+			
+		case 3: // Worst case 2
+			wc2 = worst_case_2(n, m);
+			text = std::get<0>(wc2);
+			pattern = std::get<1>(wc2);
+			
+			instance_name = "Worst case 2";
+			break;
+			
+		case 4: // Real instance
+			text = Texto_Livros;
+			pattern = Padroes_Palavras[word];
+			n = 66;
+			m = (int) strlen(pattern);
+			
+			instance_name = "Real";
+			break;
+			
+		default:
+			std::cout << "Invalid input" << std::endl;
+			return 0;
 	}
 	
-	std::cout << "Text: ";
-	print_text(text, n);
-	std::cout << "Pattern: ";
-	print_text(pattern, m);
+	if (print_input) {
+		std::cout << "Text: ";
+		print_text(text, n);
+		std::cout << "Pattern: ";
+		print_text(pattern, m);
+	}
 	
 	Search intuitive_search = Search(INTUITIVE);
 	Search kmp_search = Search(KMP);
@@ -81,25 +101,22 @@ int main() {
 	int* kmp_output = new int[n+1];
 	kmp_output[0] = -1;
 	
+	std::chrono::steady_clock::time_point intuitive_begin = std::chrono::steady_clock::now();
 	intuitive_search.search(text, pattern, intuitive_output);
+	std::chrono::steady_clock::time_point intuitive_end = std::chrono::steady_clock::now();
 	
-	bool pattern_found = false;
-	for(int i = 0; intuitive_output[i] != -1; i++) {
-		std::cout << "Pattern found on index: " << intuitive_output[i] << std::endl;
-		pattern_found = true;
-	}
-
-	if(!pattern_found) { std::cout << "Could not find pattern on this text." << std::endl; }
-	
-	
+	std::chrono::steady_clock::time_point kmp_begin = std::chrono::steady_clock::now();
 	kmp_search.search(text, pattern, kmp_output);
+	std::chrono::steady_clock::time_point kmp_end = std::chrono::steady_clock::now();
 	
-	pattern_found = false;
-	for(int i = 0; intuitive_output[i] != -1; i++) {
-		std::cout << "Pattern found on index: " << intuitive_output[i] << std::endl;
-		pattern_found = true;
-	}
+	bool equal_output = equal(intuitive_output, kmp_output);
 	
-	if(!pattern_found) { std::cout << "Could not find pattern on this text." << std::endl; }
+	long intuitive_time = std::chrono::duration_cast<std::chrono::milliseconds>(intuitive_end - intuitive_begin).count();
+	long kmp_time = std::chrono::duration_cast<std::chrono::milliseconds>(kmp_end - kmp_begin).count();
+
+	std::cout << "Instance type: " << instance_name << std::endl;
+	std::cout << "Intuitive time: " << intuitive_time << std::endl;
+	std::cout << "KMP time: " << kmp_time << std::endl;
+	std::cout << "Equal: " << (equal_output ? "Yes" : "No") << std::endl;
 	
 }

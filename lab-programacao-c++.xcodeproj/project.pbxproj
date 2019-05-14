@@ -35,6 +35,8 @@
 		C8264E94224027D9002E006E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8264E93224027D9002E006E /* main.cpp */; };
 		C856719D222D563E0015EDB3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C856719B222D563E0015EDB3 /* main.cpp */; };
 		C85671AC222D56690015EDB3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C85671AA222D56690015EDB3 /* main.cpp */; };
+		C86499C8228A49A800E06FD8 /* table_printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86499C7228A49A800E06FD8 /* table_printer.cpp */; };
+		C86499CB228A49E300E06FD8 /* console_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C86499C9228A49E300E06FD8 /* console_helper.cpp */; };
 		C8708986228778F30092C029 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8708985228778F30092C029 /* main.cpp */; };
 		C87089912287790B0092C029 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C87089902287790B0092C029 /* main.cpp */; };
 		C870899E22877AED0092C029 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C870899D22877AEC0092C029 /* main.cpp */; };
@@ -308,6 +310,11 @@
 		C85671AA222D56690015EDB3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C85671AB222D56690015EDB3 /* class-03-pictures.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "class-03-pictures.pdf"; sourceTree = "<group>"; };
 		C86499C12289093300E06FD8 /* instancias_Reais_Trabalho_2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = instancias_Reais_Trabalho_2.hpp; sourceTree = "<group>"; };
+		C86499C5228A49A700E06FD8 /* table_printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table_printer.h; sourceTree = "<group>"; };
+		C86499C6228A49A800E06FD8 /* table_printer.tpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = table_printer.tpp.h; sourceTree = "<group>"; };
+		C86499C7228A49A800E06FD8 /* table_printer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = table_printer.cpp; sourceTree = "<group>"; };
+		C86499C9228A49E300E06FD8 /* console_helper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = console_helper.cpp; sourceTree = "<group>"; };
+		C86499CA228A49E300E06FD8 /* console_helper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = console_helper.hpp; sourceTree = "<group>"; };
 		C8708983228778F30092C029 /* class-01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "class-01"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8708985228778F30092C029 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C870898E2287790B0092C029 /* class-10 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "class-10"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -747,6 +754,9 @@
 		C86499C4228914D900E06FD8 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				C86499C7228A49A800E06FD8 /* table_printer.cpp */,
+				C86499C5228A49A700E06FD8 /* table_printer.h */,
+				C86499C6228A49A800E06FD8 /* table_printer.tpp.h */,
 				C86499C12289093300E06FD8 /* instancias_Reais_Trabalho_2.hpp */,
 			);
 			name = libs;
@@ -814,6 +824,7 @@
 		C87089B22288DD720092C029 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C86499C9228A49E300E06FD8 /* console_helper.cpp */,
 				C87089B42288DDC10092C029 /* array_helper.cpp */,
 			);
 			name = helpers;
@@ -825,6 +836,7 @@
 				C87089B82288E2A40092C029 /* enum.hpp */,
 				C87089BA2288E3BF0092C029 /* search.hpp */,
 				C87089B52288DDC10092C029 /* array_helper.hpp */,
+				C86499CA228A49E300E06FD8 /* console_helper.hpp */,
 			);
 			name = headers;
 			sourceTree = "<group>";
@@ -1639,7 +1651,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C86499CB228A49E300E06FD8 /* console_helper.cpp in Sources */,
 				C894693A227917D000882146 /* main.cpp in Sources */,
+				C86499C8228A49A800E06FD8 /* table_printer.cpp in Sources */,
 				C87089BB2288E3BF0092C029 /* search.cpp in Sources */,
 				C87089B62288DDC10092C029 /* array_helper.cpp in Sources */,
 			);

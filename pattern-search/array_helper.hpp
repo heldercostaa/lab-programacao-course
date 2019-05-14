@@ -14,8 +14,9 @@
 
 void print_text(const char* text, int size);
 void print_array(int *arr, int size);
-char* random_text(int size, int l);
+bool equal(int* arr1, int* arr2);
 
+char* random_text(int size, int l);
 std::tuple<char*, char*> worst_case_1(int n, int m);
 std::tuple<char*, char*> worst_case_2(int n, int m);
 
