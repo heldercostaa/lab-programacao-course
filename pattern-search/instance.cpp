@@ -59,7 +59,7 @@ void Instance::get_text_and_pattern() {
 		} case REAL: {
 			text = Texto_Livros;
 			pattern = Padroes_Palavras[l_or_word];
-			n = 64;
+			n = (int) strlen(text);
 			m = (int) strlen(pattern);
 			
 			instance_name = "Real";

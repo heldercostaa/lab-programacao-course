@@ -63,7 +63,7 @@ void show_results(std::vector<std::tuple<Search,std::vector<int>,long,bool>> res
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 	std::cout << "Generating results...\n";
 	std::this_thread::sleep_for(std::chrono::seconds(2));
-	std::cout << "Bellow, the table with the results.\n";
+	std::cout << "Below, the table with the results.\n";
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 
 	bprinter::TablePrinter tp(&std::cout);
