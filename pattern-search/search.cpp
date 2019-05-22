@@ -37,10 +37,13 @@ std::vector<int> Search::search() {
 }
 
 std::vector<int> Search::intuitive_search(const char* text, const char* pattern, std::vector<int> output) {
+
+	long n = instance.n;
+	long m = instance.m;
 	
-	for (int i = 0; text[i] != '\0'; i++) {
+	for (int i = 0; i < n; i++) {
 		bool found = true;
-		for (int j = 0; pattern[j] != '\0'; j++) {
+		for (int j = 0; j < m; j++) {
 			if (text[i+j] != pattern[j]) {
 				found = false;
 				break;
@@ -50,7 +53,7 @@ std::vector<int> Search::intuitive_search(const char* text, const char* pattern,
 			output.push_back(i);
 		}
 	}
-
+	
 	return output;
 }
 
@@ -71,9 +74,8 @@ std::vector<int> Search::intuitive_search(const char* text, const char* pattern,
  For the pattern "AAABAAA",
  pi[] is [0, 1, 2, 0, 1, 2, 3]
  */
-int* calculate_pi(const char* pattern) {
+int* calculate_pi(const char* pattern, long m) {
 	
-	long m = strlen(pattern);
 	int* pi = new int[m];
 	
 	pi[0] = 0;
@@ -102,13 +104,12 @@ int* calculate_pi(const char* pattern) {
 
 std::vector<int> Search::kmp(const char* text, const char* pattern, std::vector<int> output) {
 	
-	int* pi = calculate_pi(pattern);
-
-	//std::cout << "Pi: "; 
-	//print_array(pi, strlen(pattern));
+	long n = instance.n;
+	long m = instance.m;
 	
-	long n = strlen(text);
-	long m = strlen(pattern);
+	int* pi = calculate_pi(pattern, m);
+	//std::cout << "Pi: ";
+	//print_array(pi, strlen(pattern));
 	
 	int i = 0, j = 0;
 	
