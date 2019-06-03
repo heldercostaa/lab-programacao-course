@@ -56,6 +56,8 @@
 		C8D6DC0322415007006082F2 /* array_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8D6DC0222415007006082F2 /* array_helper.cpp */; };
 		C8D6DC0A2241560B006082F2 /* particoes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8D6DC082241560B006082F2 /* particoes.cpp */; };
 		C8D6DC0D224159D9006082F2 /* quicksorts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8D6DC0B224159D9006082F2 /* quicksorts.cpp */; };
+		C8FE50EC22A5B03E00DCB4C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8FE50EB22A5B03E00DCB4C9 /* main.cpp */; };
+		C8FE50F522A5B1E300DCB4C9 /* min_heap.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C8FE50F422A5B1E300DCB4C9 /* min_heap.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -239,6 +241,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		C8FE50E722A5B03E00DCB4C9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -366,6 +377,9 @@
 		C8D6DC092241560B006082F2 /* particoes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = particoes.hpp; sourceTree = "<group>"; };
 		C8D6DC0B224159D9006082F2 /* quicksorts.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = quicksorts.cpp; sourceTree = "<group>"; };
 		C8D6DC0C224159D9006082F2 /* quicksorts.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quicksorts.hpp; sourceTree = "<group>"; };
+		C8FE50E922A5B03E00DCB4C9 /* huffman-coding */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "huffman-coding"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FE50EB22A5B03E00DCB4C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C8FE50F422A5B1E300DCB4C9 /* min_heap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = min_heap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +517,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C8AB20AC222D5361000FED0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FE50E622A5B03E00DCB4C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -984,6 +1005,7 @@
 				C89469572279304500882146 /* classes */,
 				C80FB486228371C100D32C73 /* quicksort-variations */,
 				C8946938227917D000882146 /* pattern-search */,
+				C8FE50EA22A5B03E00DCB4C9 /* huffman-coding */,
 				C8AB20B0222D5361000FED0D /* Products */,
 				C894695222791A8600882146 /* README.md */,
 			);
@@ -1012,6 +1034,7 @@
 				C870898E2287790B0092C029 /* class-10 */,
 				C870899B22877AEC0092C029 /* class-16 */,
 				C87089A622877B140092C029 /* class-17 */,
+				C8FE50E922A5B03E00DCB4C9 /* huffman-coding */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1032,6 +1055,47 @@
 				C8D6DC0C224159D9006082F2 /* quicksorts.hpp */,
 			);
 			name = headers;
+			sourceTree = "<group>";
+		};
+		C8FE50EA22A5B03E00DCB4C9 /* huffman-coding */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE50EB22A5B03E00DCB4C9 /* main.cpp */,
+				C8FE50F222A5B0E400DCB4C9 /* libs */,
+				C8FE50F122A5B0DD00DCB4C9 /* headers */,
+				C8FE50F022A5B0CF00DCB4C9 /* helpers */,
+				C8FE50F322A5B0E900DCB4C9 /* pictures */,
+			);
+			path = "huffman-coding";
+			sourceTree = "<group>";
+		};
+		C8FE50F022A5B0CF00DCB4C9 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
+		C8FE50F122A5B0DD00DCB4C9 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
+		C8FE50F222A5B0E400DCB4C9 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE50F422A5B1E300DCB4C9 /* min_heap.hpp */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		C8FE50F322A5B0E900DCB4C9 /* pictures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1377,6 +1441,23 @@
 			productReference = C8AB20AF222D5361000FED0D /* lab-programacao */;
 			productType = "com.apple.product-type.tool";
 		};
+		C8FE50E822A5B03E00DCB4C9 /* huffman-coding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8FE50ED22A5B03E00DCB4C9 /* Build configuration list for PBXNativeTarget "huffman-coding" */;
+			buildPhases = (
+				C8FE50E522A5B03E00DCB4C9 /* Sources */,
+				C8FE50E622A5B03E00DCB4C9 /* Frameworks */,
+				C8FE50E722A5B03E00DCB4C9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "huffman-coding";
+			productName = "huffman-coding";
+			productReference = C8FE50E922A5B03E00DCB4C9 /* huffman-coding */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1447,6 +1528,9 @@
 					C8AB20AE222D5361000FED0D = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					C8FE50E822A5B03E00DCB4C9 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = C8AB20AA222D5360000FED0D /* Build configuration list for PBXProject "lab-programacao-c++" */;
@@ -1482,6 +1566,7 @@
 				C87089A522877B140092C029 /* class-17 */,
 				C80FB484228371C100D32C73 /* quicksort-variations */,
 				C8946936227917D000882146 /* pattern-search */,
+				C8FE50E822A5B03E00DCB4C9 /* huffman-coding */,
 			);
 		};
 /* End PBXProject section */
@@ -1673,6 +1758,15 @@
 				C80FB43C22836D8C00D32C73 /* array_helper.cpp in Sources */,
 				C80FB43622836D8C00D32C73 /* particionamento.cpp in Sources */,
 				C80FB43F22836D8C00D32C73 /* quicksort.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FE50E522A5B03E00DCB4C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FE50F522A5B1E300DCB4C9 /* min_heap.hpp in Sources */,
+				C8FE50EC22A5B03E00DCB4C9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2127,6 +2221,22 @@
 			};
 			name = Release;
 		};
+		C8FE50EE22A5B03E00DCB4C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C8FE50EF22A5B03E00DCB4C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2315,6 +2425,15 @@
 			buildConfigurations = (
 				C8AB20B7222D5361000FED0D /* Debug */,
 				C8AB20B8222D5361000FED0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8FE50ED22A5B03E00DCB4C9 /* Build configuration list for PBXNativeTarget "huffman-coding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FE50EE22A5B03E00DCB4C9 /* Debug */,
+				C8FE50EF22A5B03E00DCB4C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

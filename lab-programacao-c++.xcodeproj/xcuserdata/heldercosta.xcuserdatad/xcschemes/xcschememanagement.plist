@@ -89,6 +89,11 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
+		<key>huffman-coding.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>pattern-search.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
