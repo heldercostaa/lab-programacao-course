@@ -27,25 +27,25 @@ int main(int argc, const char * argv[]) {
 	heap.insertValue(33);
 	heap.insertValue(31);
 	
-	// Must print 10
+	// Must print value 10
 	std::cout << heap.getMin() << std::endl;
 	
-	// Must print 1
+	// Must print index 1
 	std::cout << heap.left(0) << std::endl;
 	
-	// Must print 2
+	// Must print index 2
 	std::cout << heap.right(0) << std::endl;
 	
-	// Must print 3
+	// Must print index 3
 	std::cout << heap.parent(8) << std::endl;
 	
-	// Must print 10
+	// Must print value 10
 	std::cout << heap.extractMin() << std::endl;
 	
-	// Must print 14
+	// Must print value 14
 	std::cout << heap.getMin() << std::endl;
 	
-	// Must print 3
+	// Must print value 3
 	heap.insertValue(3);
 	std::cout << heap.getMin() << std::endl;
 	

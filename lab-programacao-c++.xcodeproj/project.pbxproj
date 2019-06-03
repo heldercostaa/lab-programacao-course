@@ -380,6 +380,7 @@
 		C8FE50E922A5B03E00DCB4C9 /* huffman-coding */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "huffman-coding"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FE50EB22A5B03E00DCB4C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C8FE50F422A5B1E300DCB4C9 /* min_heap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = min_heap.hpp; sourceTree = "<group>"; };
+		C8FE50F622A5BBE700DCB4C9 /* huffman-coding-specification.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "huffman-coding-specification.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1094,6 +1095,7 @@
 		C8FE50F322A5B0E900DCB4C9 /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				C8FE50F622A5BBE700DCB4C9 /* huffman-coding-specification.pdf */,
 			);
 			path = pictures;
 			sourceTree = "<group>";
